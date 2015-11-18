@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="app" >
 <head>
     <title></title>
 	<meta charset="utf-8" />
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="app/common/css/main.css" rel="stylesheet" />
 </head>
-<body ng-app="app">
+<body ng-cloak>
     
+    <div ng-include="'app/common/html/navbar.html'"></div>
     <ng-view></ng-view>
 
     <div id="bower_components">
