@@ -21,6 +21,8 @@ namespace etrmpro.CurveAPI.Models
             return new CurveServiceDbContext();
         }
 
+        public DbSet<AssetClass> AssetClasses { get; set; }
+        public DbSet<AssetSubClass> AssetSubClasses { get; set; }
         public DbSet<Commodity> Commodities { get; set; }
         public DbSet<Curve> Curves { get; set; }
         public DbSet<Tenant> Tenants { get; set; }
@@ -63,8 +65,17 @@ namespace etrmpro.CurveAPI.Models
                 new Tenant() { TenantId = 1, Name = "Tenant1" }
             );
 
+            context.AssetClasses.AddOrUpdate(a => a.AssetClassId,
+                new AssetClass() { AssetClassId = 1, Name = "Commodity" }
+                );
+
+            context.AssetSubClasses.AddOrUpdate(a => a.AssetSubClassId,
+                new AssetSubClass() { AssetSubClassId = 1, AssetClassId = 1, Name = "Energy" }
+                );
+
             context.Commodities.AddOrUpdate(c => c.CommodityId,
-               new Commodity() { CommodityId = 1, Name = "Electricity" }
+               new Commodity() { CommodityId = 1, AssetSubClassId = 1, Name = "Electricity" },
+               new Commodity() { CommodityId = 2, AssetSubClassId = 1, Name = "Natural Gas" }
             );
 
             base.Seed(context);

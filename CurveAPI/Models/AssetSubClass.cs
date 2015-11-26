@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace etrmpro.CurveAPI.Models
 {
-    public class Commodity : AbstractEntity
+    public class AssetSubClass : AbstractEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CommodityId { get; set; }
+        [Key]
         public int AssetSubClassId { get; set; }
-        [ForeignKey("AssetSubClassId")]
-        public AssetSubClass AssetSubClass { get; set; }
+        public int AssetClassId { get; set; }
+        [ForeignKey("AssetClassId")]
+        public AssetClass AssetClass { get; set; }
         [Required]
         public string Name { get; set; }
     }

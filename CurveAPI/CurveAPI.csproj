@@ -96,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AbstractEntity.cs" />
+    <Compile Include="Models\AssetSubClass.cs" />
+    <Compile Include="Models\AssetClass.cs" />
     <Compile Include="Models\AuthUser.cs" />
     <Compile Include="Models\CapacityZone.cs" />
     <Compile Include="Models\Commodity.cs" />
