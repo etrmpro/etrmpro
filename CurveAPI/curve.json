@@ -1,0 +1,23 @@
+﻿{
+    "curves": [
+        {
+            "curveId": 1,
+            "commodity": "Electricity",
+            "market": "ERCOT",
+            "pricingPoint": "LZ_HOUSTON"
+        },
+        {
+            "curveId": 2,
+            "commodity": "Natural Gas",
+            "market": "NYMEX",
+            "pricingPoint": "HENRY_HUB"
+        },
+        {
+            "curveId": 3,
+            "commodity": "Crude Oil",
+            "market": "NYMEX",
+            "pricingPoint": ""
+        }
+    ]
+
+}

@@ -1,4 +1,4 @@
-﻿namespace CurveService.Models
+﻿namespace etrmpro.CurveAPI.Models
 {
     public class Point : AbstractEntity
     {

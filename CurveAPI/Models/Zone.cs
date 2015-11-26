@@ -1,8 +1,8 @@
 ﻿namespace etrmpro.CurveAPI.Models
 {
-    public class Market : AbstractEntity
+    public class Zone : AbstractEntity
     {
-        public int MarketId { get; set; }
+        public int ZoneId { get; set; }
         public string Name { get; set; }
     }
 }
