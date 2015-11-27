@@ -82,15 +82,18 @@ namespace etrmpro.CurveAPI.Models
             );
 
             context.Regions.AddOrUpdate(r => r.RegionId,
-                new Region() { RegionId = 1, CommodityId = 1, Name = "ERCOT"}
+                new Region() { RegionId = 1, CommodityId = 1, Name = "ERCOT"},
+                new Region() { RegionId = 2, CommodityId = 1, Name = "PJM" }
                 );
 
             context.Markets.AddOrUpdate(m => m.MarketId,
-                new Market() { MarketId = 1, RegionId = 1, Name = "LZ_HOUSTON"}
+                new Market() { MarketId = 1, RegionId = 1, Name = "LZ_HOUSTON"},
+                new Market() { MarketId = 2, RegionId = 1, Name = "LZ_NORTH" }
                 );
 
             context.Points.AddOrUpdate(p => p.PointId,
-                new Point() { PointId = 1, MarketId = 1, Name = "CAL_PUN1"}
+                new Point() { PointId = 1, MarketId = 1, Name = "CAL_PUN1"},
+                new Point() { PointId = 2, MarketId = 2, Name = "MDANP_CT1_2" }
                 );
 
 

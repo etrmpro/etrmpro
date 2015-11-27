@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace etrmpro.CurveAPI.Models
 {
-    public class Curve : AbstractMultitenantEntity, IEntity
+    public class Curve : AbstractMultitenantEntity, IEntity, IValidatableObject
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CurveId { get; set; }
@@ -20,6 +22,25 @@ namespace etrmpro.CurveAPI.Models
         public int GetId()
         {
             return CurveId;
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            IList<ValidationResult> validationResults = new List<ValidationResult>();
+            if (PointId > 0 && Point == null)
+            {
+                var dbContext = new CurveServiceDbContext();
+                Point point = dbContext.Points.Find(PointId);
+                if (point == null)
+                {
+                    validationResults.Add(new ValidationResult("The PointId (" + PointId + ") supplied is invalid."));
+                }
+                else if (point.MarketId != MarketId)
+                {
+                    validationResults.Add(new ValidationResult("The Point (" + point + ") is not associated with the Market (" + Market + ")"));
+                }
+            }
+            return validationResults;
         }
     }
 }
