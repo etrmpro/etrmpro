@@ -7,6 +7,13 @@ namespace etrmpro.CurveAPI.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CurveId { get; set; }
+        public int MarketId { get; set; }
+        [ForeignKey("MarketId")]
+        public Market Market { get; set; }
+        public int? PointId { get; set; }
+        [ForeignKey("PointId")]
+        public Point Point { get; set; }
+
         [Required]
         public string Name { get; set; }
 

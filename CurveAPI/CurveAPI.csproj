@@ -104,11 +104,11 @@
     <Compile Include="Models\Curve.cs" />
     <Compile Include="Models\CurveServiceDbContext.cs" />
     <Compile Include="Models\CurveType.cs" />
-    <Compile Include="Models\Market.cs" />
+    <Compile Include="Models\Region.cs" />
     <Compile Include="Models\Point.cs" />
     <Compile Include="Models\Tenant.cs" />
     <Compile Include="Models\Utility.cs" />
-    <Compile Include="Models\Zone.cs" />
+    <Compile Include="Models\Market.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AbstractService.cs" />
     <Compile Include="Services\CurveService.cs" />

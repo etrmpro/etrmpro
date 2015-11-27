@@ -25,6 +25,9 @@ namespace etrmpro.CurveAPI.Models
         public DbSet<AssetSubClass> AssetSubClasses { get; set; }
         public DbSet<Commodity> Commodities { get; set; }
         public DbSet<Curve> Curves { get; set; }
+        public DbSet<Market> Markets { get; set; }
+        public DbSet<Point> Points { get; set; }
+        public DbSet<Region> Regions { get; set; }
         public DbSet<Tenant> Tenants { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -77,6 +80,19 @@ namespace etrmpro.CurveAPI.Models
                new Commodity() { CommodityId = 1, AssetSubClassId = 1, Name = "Electricity" },
                new Commodity() { CommodityId = 2, AssetSubClassId = 1, Name = "Natural Gas" }
             );
+
+            context.Regions.AddOrUpdate(r => r.RegionId,
+                new Region() { RegionId = 1, CommodityId = 1, Name = "ERCOT"}
+                );
+
+            context.Markets.AddOrUpdate(m => m.MarketId,
+                new Market() { MarketId = 1, RegionId = 1, Name = "LZ_HOUSTON"}
+                );
+
+            context.Points.AddOrUpdate(p => p.PointId,
+                new Point() { PointId = 1, MarketId = 1, Name = "CAL_PUN1"}
+                );
+
 
             base.Seed(context);
         }
